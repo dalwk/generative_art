@@ -313,17 +313,6 @@ class ShaderProgram {
         break
       }
     }
-
-    // ivec2       : uniform2i,
-    // ivec3       : uniform3i,
-    // ivec4       : uniform4i,
-    // sampler2D   : uniform1i,
-    // samplerCube : uniform1i,
-    // bool        : uniform1i,
-    // bvec2       : uniform2i,
-    // bvec3       : uniform3i,
-    // bvec4       : uniform4i,
-
   }
 
   updateUniforms() {
@@ -481,25 +470,12 @@ class ShaderProgram {
 
 }
 
-// const stats = new Stats()
-// document.body.appendChild( stats.domElement )
-
 const count = 80
 const particles = 80
 const length = 250
 const radius = 35
-const pointSize = 1.0
+const pointSize = 1.4
 const turns = Math.PI / length * 3
-
-const randR = Math.floor(Math.random() * (100 - 10) + 10) / 100;
-const randG = Math.floor(Math.random() * (100 - 10) + 10) / 100;
-const randB = Math.floor(Math.random() * (100 - 10) + 10) / 100;
-const randR2 = Math.floor(Math.random() * (100 - 10) + 10) / 100;
-const randG2 = Math.floor(Math.random() * (100 - 10) + 10) / 100;
-const randB2 = Math.floor(Math.random() * (100 - 10) + 10) / 100;
-
-const color1 = { r: randR, g: randG, b: randB, a: 1 }
-const color2 = { r: randR2, g: randG2, b: randB2, a: 1 }
 const transform = ( (a) => {
   const c = Math.cos(a), s = Math.sin(a)
   return [ c, s, 0, 0, -s, c, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1 ]
@@ -570,9 +546,9 @@ Array.from( { length: count }, ( helix, h ) =>  {
   h = h / ( count - 1 )
 
   const rgba = [
-    color1.r + (color2.r - color1.r) * h,
-    color1.g + (color2.g - color1.g) * h,
-    color1.b + (color2.b - color1.b) * h,
+    Math.floor(Math.random() * (100 - 10) + 10) / 100,
+    Math.floor(Math.random() * (100 - 10) + 10) / 100,
+    Math.floor(Math.random() * (100 - 10) + 10) / 100,
     1
   ]
 
