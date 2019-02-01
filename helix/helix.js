@@ -484,14 +484,22 @@ class ShaderProgram {
 // const stats = new Stats()
 // document.body.appendChild( stats.domElement )
 
-const count = 100
-const particles = 30
-const length = 120
-const radius = 15
-const pointSize = 1.8
-const turns = Math.PI / length * 2
-const color1 = { r: 0, g: 0.13, b: 1, a: 1 }
-const color2 = { r: 0, g: 0.75, b: 1, a: 1 }
+const count = 80
+const particles = 80
+const length = 250
+const radius = 35
+const pointSize = 1.0
+const turns = Math.PI / length * 3
+
+const randR = Math.floor(Math.random() * (100 - 10) + 10) / 100;
+const randG = Math.floor(Math.random() * (100 - 10) + 10) / 100;
+const randB = Math.floor(Math.random() * (100 - 10) + 10) / 100;
+const randR2 = Math.floor(Math.random() * (100 - 10) + 10) / 100;
+const randG2 = Math.floor(Math.random() * (100 - 10) + 10) / 100;
+const randB2 = Math.floor(Math.random() * (100 - 10) + 10) / 100;
+
+const color1 = { r: randR, g: randG, b: randB, a: 1 }
+const color2 = { r: randR2, g: randG2, b: randB2, a: 1 }
 const transform = ( (a) => {
   const c = Math.cos(a), s = Math.sin(a)
   return [ c, s, 0, 0, -s, c, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1 ]
