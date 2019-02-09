@@ -1,3 +1,6 @@
+// Code modified from source:
+// https://github.com/manoloide/AllSketchs/blob/master/2017/sunflower/sunflower.pde
+
 ArrayList<PVector> points;
 Camera cam;
 boolean zoom = false;
