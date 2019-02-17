@@ -4,14 +4,12 @@ class Molecule {
   int radius;
   PVector position;
   PVector velocity;
-  PVector acceleration;
 
   Molecule() {
     c = color(random(80, 255), random(80, 255), random(80, 255), random(175, 225));
     radius = int(random(5, 7));
     position = new PVector(random(20, width-20), random(20, height-20));
     velocity = new PVector(random(-2, 2), random(-2, 2));
-    acceleration = new PVector(0, 0);
   }
 
   void display() {
@@ -21,9 +19,7 @@ class Molecule {
   }
 
   void move() {
-    velocity.add(acceleration);
     position.add(velocity);
-    acceleration.mult(0);
   }
 
   void checkEdges() {
