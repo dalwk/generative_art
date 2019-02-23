@@ -1,6 +1,6 @@
 float[][] glitter = new float [100000][15];
-float currentflamef,nextflamef;
-int currentflame=0,nextflame;
+float currentsparklef,nextsparklef;
+int currentsparkle=0,nextsparkle;
 
 void setup(){
   size(768,768);
@@ -14,13 +14,13 @@ void draw(){
   background(0);
   float randomCheck = random(0, 10);
   if(randomCheck > 5) {
-    create_fire();
+    create_glitter();
   }
-  update_fire(); 
-  draw_fire();
+  update_glitter(); 
+  draw_glitter();
 }
 
-void update_fire(){
+void update_glitter(){
   for(int sparkle=0 ; sparkle<100000 ; sparkle++){
     if(glitter[sparkle][0]==1){
 
@@ -37,8 +37,8 @@ void update_fire(){
   }
 }
 
-void draw_fire(){
-  for(int sparkle=0 ; sparkle<currentflame ; sparkle++){
+void draw_glitter(){
+  for(int sparkle=0 ; sparkle<currentsparkle ; sparkle++){
     if(glitter[sparkle][0]==1){
       fill(glitter[sparkle][9],glitter[sparkle][10],glitter[sparkle][11],glitter[sparkle][12]);
       pushMatrix();
@@ -50,9 +50,9 @@ void draw_fire(){
   }
 }
 
-void create_fire(){
-  nextflame=currentflame+10;
-  for(int sparkle=currentflame ; sparkle<nextflame ; sparkle++){
+void create_glitter(){
+  nextsparkle=currentsparkle+10;
+  for(int sparkle=currentsparkle ; sparkle<nextsparkle ; sparkle++){
     glitter[sparkle][0]=1;
     glitter[sparkle][1]=random(0,width);
     glitter[sparkle][2]=random(0,height);
@@ -67,5 +67,5 @@ void create_fire(){
     glitter[sparkle][11]=random(0,255);//blue
     glitter[sparkle][12]=random(0,255);//alpha
   }
-  currentflame=nextflame;
+  currentsparkle=nextsparkle;
 }
