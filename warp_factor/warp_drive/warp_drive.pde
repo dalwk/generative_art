@@ -1,8 +1,8 @@
 class Star {
   color c;
   float x1, y1, x2, y2;
-  float speed1 = 1.025;
-  float speed2 = 1.06;
+  float factorOne = 1.025;
+  float factorTwo = 1.06;
   
   Star() {
     c = color(random(0, 255), random(0, 255), random(0, 255), random(175, 225));
@@ -19,10 +19,10 @@ class Star {
   }
   
   void accelerate() {
-    this.x1 = speed1*this.x1;
-    this.y1 = speed1*this.y1;
-    this.x2 = speed2*this.x2;
-    this.y2 = speed2*this.y2;
+    this.x1 = factorOne*this.x1;
+    this.y1 = factorOne*this.y1;
+    this.x2 = factorTwo*this.x2;
+    this.y2 = factorTwo*this.y2;
   
     if (abs(this.x1) > width/2 || abs(this.y1) > height/2) {
       this.x1 = (random(width - width/2)/2 * random(-1,1));
