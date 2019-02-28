@@ -32,14 +32,12 @@ class Particle {
   }
 }
 
-ArrayList<Particle> particles_a;
-ArrayList<Particle> particles_b;
-ArrayList<Particle> particles_c;
 int nums = floor(random(300, 600));
+int nums_outer = floor(random(10, 20));
 int noiseScale = 200;
-float[] p_a_color = new float[]{random(0,255), random(0,255), random(0, 255)};
-float[] p_b_color = new float[]{random(0,255), random(0,255), random(0, 255)};
-float[] p_c_color = new float[]{random(0,255), random(0,255), random(0, 255)};
+
+ArrayList<ArrayList<Particle>> outer;
+float[][] outer_color = new float[nums_outer][3];
 
 void setup() {
   size(768, 768);
@@ -47,35 +45,30 @@ void setup() {
   noStroke();
   smooth(8);
   
-  particles_a = new ArrayList<Particle>();
-  particles_b = new ArrayList<Particle>();
-  particles_c = new ArrayList<Particle>();
-
-  for(int i = 0; i < nums; i++){
-    particles_a.add(new Particle(random(0, width),random(0,height)));
-    particles_b.add(new Particle(random(0, width),random(0,height)));
-    particles_c.add(new Particle(random(0, width),random(0,height)));
+  outer = new ArrayList();
+  
+  for(int i = 0; i < nums_outer; i++) {
+    ArrayList<Particle> inner = new ArrayList<Particle>();
+    for(int j = 0; j < 2; j++) {
+      outer_color[i][j] = random(0, 255);
+    }
+    for(int k = 0; k < nums; k++){
+      inner.add(new Particle(random(0, width),random(0,height)));
+    }
+    outer.add(inner);
   }
 }
 
 void draw() {
-  for(int i = 0; i < nums; i++) {    
-    fill(p_a_color[0], p_a_color[1], p_a_color[2]);
-    Particle p_a = particles_a.get(i);
-    p_a.move();
-    p_a.display(random(0, 1));
-    p_a.checkEdge();
-    
-    fill(p_b_color[0], p_b_color[1], p_b_color[2]);
-    Particle p_b = particles_b.get(i);
-    p_b.move();
-    p_b.display(random(0, 2));
-    p_b.checkEdge();
-    
-    //fill(p_c_color[0], p_c_color[1], p_c_color[2]);
-    //Particle p_c = particles_c.get(i);
-    //p_c.move();
-    //p_c.display(random(0, 5));
-    //p_c.checkEdge();
+  
+  for(int i = 0; i < nums_outer; i++) {
+    ArrayList<Particle> inner_list = outer.get(i);
+    fill(outer_color[i][0], outer_color[i][1], outer_color[i][2]);
+    for(int j = 0; j < nums; j++){
+      Particle p = inner_list.get(j);
+      p.move();
+      p.display(random(0, 1));
+      p.checkEdge();
+    }
   }
 }
