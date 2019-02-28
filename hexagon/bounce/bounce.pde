@@ -13,6 +13,8 @@ void setup() {
 void draw() {
  
   stroke(random(0,255), random(0,255), random(0,255));
+  strokeWeight(4);
+  strokeJoin(MITER);
   
   if (trailEffect) {
     fill(0, 10);
