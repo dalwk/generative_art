@@ -8,12 +8,14 @@ void setup() {
 void draw() 
 {
   delay(250);
-  fill(0, 0, 0, 50);
+  fill(0, 0, 0, 0);
   noStroke();
   rect(0,0,width,height); 
-  translate(width/2, height/2);
-  Ring ring_obj = new Ring();
-  ring_obj.display();
+  for(int i = 0; i < 50; i++) {
+    translate(random(width), random(height));
+    Ring ring_obj = new Ring();
+    ring_obj.display();
+  }
 }
 
 class Ring {
