@@ -23,7 +23,7 @@ void draw() {
     bar.display();
     bar.update();
   }
-  delay(100);
+  delay(40);
 }
 
 class Bar {
