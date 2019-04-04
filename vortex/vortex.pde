@@ -10,12 +10,15 @@ void setup(){
 }
 
 void draw(){
-  float x,y;
+  float x, y;
   for(int i = 0; i < 2625; i++){
+    
     fill(r, g, b);
+    
     r += 1;
     g += 1;
     b += 1;
+    
     if (r >= 255) {
       r = 0;
     }
@@ -30,5 +33,4 @@ void draw(){
     y = sin(PHI * i) * (i / 5) + height / 2;
     ellipse(x, y, i / 50.0 + 3, i / 50.0 + 3);
   }
-  //delay(15);
 }
