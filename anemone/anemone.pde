@@ -3,7 +3,7 @@ int num_particles, blueCount;
 boolean blueUp;
 
 void setup() {
-  size(768, 768);
+  size(1920, 1080);
   smooth(8);
   colorMode(HSB, 1);
   background(0);

@@ -31,7 +31,7 @@ class Particle {
     angle += vel;
     radius += radius_offset;
     
-    if(x1 > width || x1 < 0 || y1 > height || y1 < 0) {
+    if(x1 > width || x1 < 0 || y1 > width || y1 < 0 - 840) {
       vel = random(0.001, 0.002);
       angle = random(1);
       prev_angle = angle - (vel / 2);
