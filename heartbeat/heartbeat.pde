@@ -1,12 +1,11 @@
 ArrayList<Particle> particles = new ArrayList<Particle>();
 float num_particles = 4000;
-//float num_particles = 10;
 float angle = random(1);
 boolean redUp;
 int redCount;
 
 void setup() {
-  size(1000, 768);
+  size(768, 768);
   background(0);
   redCount = 0;
   redUp = true;
